@@ -1,18 +1,18 @@
 <div style="text-align: center; padding: 60px 0 30px; background-color: #ffffff;">
-  <a href="https://cataniical.github.io/" style="text-decoration: none; display: flex !important; align-items: center; justify-content: center; gap: 20px; flex-direction: row;">
+  <a href="https://cataniical.github.io/" style="text-decoration: none; display: flex !important; align-items: center; justify-content: center; gap: 20px; flex-direction: row; border: none;">
     
     <img src="https://raw.githubusercontent.com/cataniical/cataniical.github.io/main/assets/img/logomark_c.jpg" 
          alt="cataniical mark" 
-         style="width: 80px; height: auto; display: inline-block !important; margin: 0; filter: invert(1) grayscale(1); mix-blend-mode: multiply;">
+         style="width: 80px; min-width: 80px; height: auto; display: inline-block !important; margin: 0; filter: invert(1) grayscale(1); mix-blend-mode: multiply; border: none;">
 
     <img src="https://raw.githubusercontent.com/cataniical/cataniical.github.io/main/assets/img/logo_catasumi.jpg" 
          alt="cataniical" 
-         style="max-width: 400px; width: 100%; height: auto; display: inline-block !important; margin: 0; mix-blend-mode: multiply; filter: contrast(1.1) grayscale(1);">
+         style="max-width: 400px; width: 100%; height: auto; display: inline-block !important; margin: 0; mix-blend-mode: multiply; filter: contrast(1.1) grayscale(1); border: none;">
          
   </a>
   
-  <p style="margin-top: 25px; color: #888; font-family: monospace; letter-spacing: 0.25em; font-size: 0.9rem;">
-    片隅に植物を　片隅ボタニカル
+  <p style="margin-top: 25px; color: #444; font-family: monospace; letter-spacing: 0.25em; font-size: 0.9rem;">
+    <strong>片隅ボタニカル　片隅に植物を</strong>
   </p>
 </div>
 
