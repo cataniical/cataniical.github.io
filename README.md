@@ -1,6 +1,6 @@
 <div style="text-align: center; padding: 60px 0 30px; background-color: #ffffff;">
-  <a href="/" style="text-decoration: none;">
-    <img src="/assets/img/logo_katasumi.jpg" 
+  <a href="https://cataniical.github.io/" style="text-decoration: none;">
+    <img src="./assets/img/logo_katasumi.jpg" 
          alt="cataniical" 
          style="max-width: 550px; width: 100%; height: auto; mix-blend-mode: multiply; filter: contrast(1.1) grayscale(1);">
   </a>
