@@ -1,7 +1,17 @@
-<div align="center">
-  <a href="https://cataniical.github.io/">
-    <img src="https://raw.githubusercontent.com/cataniical/cataniical.github.io/main/assets/img/logo_catasumi.jpg" alt="cataniical" width="550" style="mix-blend-mode: multiply; filter: contrast(1.1) grayscale(1);">
+<div style="text-align: center; padding: 60px 0 30px; background-color: #ffffff;">
+  <a href="https://cataniical.github.io/" style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 25px;">
+    <img src="https://raw.githubusercontent.com/cataniical/cataniical.github.io/main/assets/img/logomark_c.jpg" 
+         alt="cataniical mark" 
+         style="width: 90px; height: auto; filter: invert(1) grayscale(1); mix-blend-mode: multiply;">
+
+    <img src="https://raw.githubusercontent.com/cataniical/cataniical.github.io/main/assets/img/logo_catasumi.jpg" 
+         alt="cataniical" 
+         style="max-width: 400px; width: 100%; height: auto; mix-blend-mode: multiply; filter: contrast(1.1) grayscale(1);">
   </a>
+  
+  <p style="margin-top: 25px; color: #888; font-family: monospace; letter-spacing: 0.25em; font-size: 0.9rem;">
+    片隅に植物を　片隅ボタニカル
+  </p>
 </div>
 
 ---
