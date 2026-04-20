@@ -1,6 +1,6 @@
 <div style="text-align: center; padding: 40px 0;">
   <a href="https://cataniical.github.io/">
-    <img src="assets/img/logo_katasumi.jpg" 
+    <img src="https://cataniical.github.io/assets/img/logo_catasumi.jpg" 
          alt="cataniical" 
          style="max-width: 550px; width: 100%; height: auto; mix-blend-mode: multiply; filter: contrast(1.1) grayscale(1);">
   </a>
@@ -8,10 +8,6 @@
     片隅に植物を　片隅ボタニカル
   </p>
 </div>
-# 片隅ボタニカル
-**都会の片隅で、植物を育てています。**
-
----
 
 ### 🌿 About
 「片隅ボタニカル」略して、**カタニカル**。
