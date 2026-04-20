@@ -1,8 +1,8 @@
 <div style="text-align: center; padding: 60px 0 30px; background-color: #ffffff;">
-  <a href="https://cataniical.github.io/" style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 25px;">
+  <a href="https://cataniical.github.io/" style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 25px; flex-wrap: wrap;">
     <img src="https://raw.githubusercontent.com/cataniical/cataniical.github.io/main/assets/img/logomark_c.jpg" 
          alt="cataniical mark" 
-         style="width: 90px; height: auto; filter: invert(1) grayscale(1); mix-blend-mode: multiply;">
+         style="width: 100px; height: auto; filter: invert(1) grayscale(1); mix-blend-mode: multiply;">
 
     <img src="https://raw.githubusercontent.com/cataniical/cataniical.github.io/main/assets/img/logo_catasumi.jpg" 
          alt="cataniical" 
