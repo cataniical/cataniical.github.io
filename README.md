@@ -2,8 +2,6 @@
   <a href="https://cataniical.github.io/">
     <img src="https://raw.githubusercontent.com/cataniical/cataniical.github.io/main/assets/img/logo_catasumi.jpg" alt="cataniical" width="550" style="mix-blend-mode: multiply; filter: contrast(1.1) grayscale(1);">
   </a>
-
-  <p style="letter-spacing: 0.2em; color: #888; font-family: monospace;">片隅に植物を　片隅ボタニカル</p>
 </div>
 
 ---
