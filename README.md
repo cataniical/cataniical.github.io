@@ -1,13 +1,12 @@
-<div style="text-align: center; padding: 40px 0;">
+<div align="center">
   <a href="https://cataniical.github.io/">
-    <img src="https://cataniical.github.io/assets/img/logo_catasumi.jpg" 
-         alt="cataniical" 
-         style="max-width: 550px; width: 100%; height: auto; mix-blend-mode: multiply; filter: contrast(1.1) grayscale(1);">
+    <img src="https://raw.githubusercontent.com/cataniical/cataniical.github.io/main/assets/img/logo_catasumi.jpg" alt="cataniical" width="550" style="mix-blend-mode: multiply; filter: contrast(1.1) grayscale(1);">
   </a>
-  <p style="margin-top: 15px; color: #888; font-family: 'Courier Prime', monospace; letter-spacing: 0.2em; font-size: 0.9rem;">
-    片隅に植物を　片隅ボタニカル
-  </p>
+
+  <p style="letter-spacing: 0.2em; color: #888; font-family: monospace;">片隅に植物を　片隅ボタニカル</p>
 </div>
+
+---
 
 ### 🌿 About
 「片隅ボタニカル」略して、**カタニカル**。
