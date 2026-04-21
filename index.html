@@ -18,7 +18,9 @@
         .sub-menu li a:hover { background-color: #eee; }
         .main-content { flex: 1; overflow-y: auto; background-color: #ffffff; }
         .archive-entry { max-width: 900px; margin: 0 auto; padding: 0 40px 60px; line-height: 1.8; }
-        .archive-entry img { max-width: 100%; height: auto; }
+        
+        /* README内の画像表示を強制維持 */
+        .archive-entry img { max-width: 100%; height: auto; border: none; }
     </style>
 </head>
 <body>
@@ -32,7 +34,7 @@
         </nav>
     </aside>
     <main class="main-content">
-        <div id="content-area" class="archive-entry">LOADING...</div>
+        <div id="content-area" class="archive-entry">CONNECTING...</div>
     </main>
 
     <script>
@@ -40,20 +42,30 @@
             const area = document.getElementById('content-area');
             try {
                 const response = await fetch(path + '?v=' + Date.now());
-                if (!response.ok) throw new Error('FILE NOT FOUND');
+                if (!response.ok) throw new Error('FILE_NOT_FOUND');
                 let mdText = await response.text();
 
-                // 【最重要】GitHubのプレビューURLを「生データURL」に強制置換
-                mdText = mdText.replace(/github\.com\/(.*?)\/blob\/(.*?)\//g, 'raw.githubusercontent.com/$1/$2/');
-
+                // 外部ライブラリ marked を使用してHTMLへ変換
+                // HTMLタグを許可するデフォルト設定で動作します
                 area.innerHTML = marked.parse(mdText);
+
             } catch (e) {
-                area.innerHTML = `<div style="padding:40px; color:red;">[ERROR] ${e.message}</div>`;
+                area.innerHTML = `<div style="padding:40px; color:red;">[SYSTEM_ERROR] ${e.message}</div>`;
             }
         }
+
+        // ライブラリの準備が整い次第、実行
         window.onload = () => {
-            const check = setInterval(() => {
-                if (typeof marked !== 'undefined') { clearInterval(check); loadContent('README.md'); }
+            let retry = 0;
+            const timer = setInterval(() => {
+                if (typeof marked !== 'undefined') {
+                    clearInterval(timer);
+                    loadContent('README.md');
+                } else if (retry > 50) {
+                    clearInterval(timer);
+                    console.error("marked.js load timeout");
+                }
+                retry++;
             }, 100);
         };
     </script>
