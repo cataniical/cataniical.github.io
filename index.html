@@ -5,28 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CATANIICAL DIGITAL ARCHIVE</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
     <style>
+        /* スタイルは極めてシンプルに、かつ堅牢に */
         :root { --bg-color: #ffffff; --sidebar-bg: #f8f9fa; --text-main: #1a1a1a; --font-mono: 'Noto Sans Mono', monospace; }
-        body { margin: 0; display: flex; height: 100vh; font-family: var(--font-mono); background-color: var(--bg-color); color: var(--text-main); overflow: hidden; }
+        body { margin: 0; display: flex; height: 100vh; font-family: var(--font-mono); background-color: var(--bg-color); overflow: hidden; }
+        
+        /* サイドバー */
         .sidebar { width: 260px; background-color: var(--sidebar-bg); border-right: 1px solid #e0e0e0; display: flex; flex-direction: column; flex-shrink: 0; }
         .brand-header { padding: 40px 25px 20px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; border-bottom: 1px solid #eee; }
         .nav-menu { list-style: none; padding: 0; margin: 0; overflow-y: auto; flex-grow: 1; }
         .category-label { padding: 20px 25px 5px; font-size: 0.7rem; color: #888; text-transform: uppercase; }
         .sub-menu { list-style: none; padding: 0; margin-bottom: 15px; }
-        .sub-menu li a { display: block; padding: 8px 25px; text-decoration: none; color: #333; font-size: 0.8rem; cursor: pointer; }
+        .sub-menu li a { display: block; padding: 10px 25px; text-decoration: none; color: #333; font-size: 0.8rem; cursor: pointer; }
         .sub-menu li a:hover { background-color: #eee; }
-        .main-content { flex: 1; overflow-y: auto; background-color: #ffffff; }
-        .archive-entry { max-width: 900px; margin: 0 auto; padding: 0 40px 60px; line-height: 1.8; }
-        
-        /* 画像が表示されない問題への対策：README内のインラインスタイルを優先 */
-        .archive-entry img { max-width: 100%; height: auto; }
-        .archive-entry h3 { border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 40px; font-size: 1.2rem; }
+
+        /* メインコンテンツエリア：iframeによる直接表示 */
+        .main-content { flex: 1; position: relative; background-color: #ffffff; }
+        /* iframeはブラウザの標準機能なので、読み込み失敗が極めて少ない */
+        #content-frame { width: 100%; height: 100%; border: none; }
     </style>
 </head>
 <body>
+
     <aside class="sidebar">
-        <div class="brand-header" onclick="loadContent('README.md')">CATANIICAL</div>
+        <div class="brand-header" onclick="location.reload()">CATANIICAL</div>
         <nav class="nav-menu">
             <div class="category-label">Archive</div>
             <ul class="sub-menu">
@@ -34,36 +36,17 @@
             </ul>
         </nav>
     </aside>
+
     <main class="main-content">
-        <div id="content-area" class="archive-entry">INITIATING...</div>
+        <iframe id="content-frame" src="README.md"></iframe>
     </main>
 
     <script>
-        async function loadContent(path) {
-            const area = document.getElementById('content-area');
-            try {
-                const response = await fetch(path + '?v=' + Date.now());
-                if (!response.ok) throw new Error('FILE_NOT_FOUND');
-                const mdText = await response.text();
-                
-                // 【重要】v4.x 以降でHTMLタグを有効にするための設定
-                // marked.parse はデフォルトでHTMLをそのまま通します
-                area.innerHTML = marked.parse(mdText);
-                
-                document.querySelector('.main-content').scrollTop = 0;
-            } catch (e) {
-                area.innerHTML = `<div style="padding:40px; color:red;">[ERROR] ${e.message}</div>`;
-            }
+        function loadContent(path) {
+            // ライブラリを一切使わず、srcを書き換えるだけの物理的解決
+            const frame = document.getElementById('content-frame');
+            frame.src = path + '?v=' + Date.now();
         }
-
-        window.onload = () => {
-            const checkInterval = setInterval(() => {
-                if (typeof marked !== 'undefined') {
-                    clearInterval(checkInterval);
-                    loadContent('README.md');
-                }
-            }, 100);
-        };
     </script>
 </body>
 </html>
