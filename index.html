@@ -5,62 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CATANIICAL DIGITAL ARCHIVE</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
     <style>
         :root { --bg-color: #ffffff; --sidebar-bg: #f8f9fa; --text-main: #1a1a1a; --font-mono: 'Noto Sans Mono', monospace; }
         body { margin: 0; display: flex; height: 100vh; font-family: var(--font-mono); background-color: var(--bg-color); color: var(--text-main); overflow: hidden; }
         .sidebar { width: 260px; background-color: var(--sidebar-bg); border-right: 1px solid #e0e0e0; display: flex; flex-direction: column; flex-shrink: 0; }
-        .brand-header { padding: 40px 25px 20px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; border-bottom: 1px solid #eee; }
-        .nav-menu { list-style: none; padding: 0; margin: 0; overflow-y: auto; flex-grow: 1; }
+        .brand-header { padding: 40px 25px 20px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; border-bottom: 1px solid #eee; }
+        .nav-menu { list-style: none; padding: 0; margin: 0; }
         .category-label { padding: 20px 25px 5px; font-size: 0.7rem; color: #888; text-transform: uppercase; }
-        .sub-menu { list-style: none; padding: 0; margin-bottom: 15px; }
-        .sub-menu li a { display: block; padding: 10px 25px; text-decoration: none; color: #333; font-size: 0.8rem; cursor: pointer; }
-        .sub-menu li a:hover { background-color: #eee; }
-        .main-content { flex: 1; overflow-y: auto; background-color: #ffffff; }
-        .archive-entry { max-width: 900px; margin: 0 auto; padding: 0 40px 60px; line-height: 1.8; }
-        .archive-entry img { max-width: 100%; height: auto; border: none; display: inline-block; }
+        .sub-menu { list-style: none; padding: 0; }
+        .sub-menu li { padding: 10px 25px; font-size: 0.8rem; border-bottom: 1px solid #f0f0f0; }
+        .main-content { flex: 1; padding: 60px; overflow-y: auto; text-align: center; }
+        
+        /* ロゴ周りの絶対的スタイル */
+        .logo-container { display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 40px; }
+        .logo-mark { width: 80px; height: auto; }
+        .logo-text { max-width: 400px; width: 100%; height: auto; mix-blend-mode: multiply; filter: contrast(1.1) grayscale(1); }
+        .about-section { max-width: 600px; margin: 0 auto; text-align: left; line-height: 2; }
     </style>
 </head>
 <body>
     <aside class="sidebar">
-        <div class="brand-header" onclick="loadContent('README.md')">CATANIICAL</div>
+        <div class="brand-header">CATANIICAL</div>
         <nav class="nav-menu">
             <div class="category-label">Archive</div>
-            <ul class="sub-menu">
-                <li><a onclick="loadContent('README.md')">HOME / ABOUT</a></li>
-            </ul>
+            <ul class="sub-menu"><li>HOME / ABOUT</li></ul>
         </nav>
     </aside>
     <main class="main-content">
-        <div id="content-area" class="archive-entry">CONNECTING...</div>
+        <div class="logo-container">
+            <img src="https://raw.githubusercontent.com/cataniical/cataniical.github.io/main/assets/img/logomark_c.jpg" class="logo-mark" alt="mark">
+            <img src="https://raw.githubusercontent.com/cataniical/cataniical.github.io/main/assets/img/logo_catasumi.jpg" class="logo-text" alt="text">
+        </div>
+        
+        <div class="about-section">
+            <h3>About カタニカル</h3>
+            <p><strong>片隅にボタニカルを その記録とともに</strong></p>
+            <p>#カタニカル, #cataniical</p>
+            <p>日々の植物達の成長などを発信しています。</p>
+            <hr>
+            <p>© 2026 cataniical</p>
+        </div>
     </main>
-
-    <script>
-        async function loadContent(path) {
-            const area = document.getElementById('content-area');
-            try {
-                const response = await fetch(path + '?v=' + Date.now());
-                if (!response.ok) throw new Error('FILE_NOT_FOUND');
-                let mdText = await response.text();
-
-                // GitHubのプレビュー用URL(blob)を、画像として読み込めるURL(raw)へ強制置換
-                mdText = mdText.replace(/github\.com\/(.*?)\/blob\/(.*?)\//g, 'raw.githubusercontent.com/$1/$2/');
-
-                // HTMLの解析を有効化
-                area.innerHTML = marked.parse(mdText, { gfm: true, breaks: true });
-            } catch (e) {
-                area.innerHTML = `<div style="padding:40px; color:red;">[ERROR] ${e.message}</div>`;
-            }
-        }
-
-        window.onload = () => {
-            const check = setInterval(() => {
-                if (typeof marked !== 'undefined') {
-                    clearInterval(check);
-                    loadContent('README.md');
-                }
-            }, 100);
-        };
-    </script>
 </body>
 </html>
