@@ -26,6 +26,7 @@
             overflow: hidden;
         }
 
+        /* サイドバー */
         .sidebar {
             width: 260px;
             background-color: var(--sidebar-bg);
@@ -39,7 +40,6 @@
             padding: 40px 25px 20px;
         }
 
-        /* ロゴリンクのスタイル */
         .brand-header a {
             font-size: 1.1rem;
             font-weight: 700;
@@ -47,6 +47,7 @@
             text-transform: uppercase;
             text-decoration: none;
             color: var(--text-main);
+            cursor: pointer;
         }
 
         .nav-menu {
@@ -86,6 +87,7 @@
             background-color: #efefef;
         }
 
+        /* メインコンテンツ */
         .main-content {
             flex: 1;
             padding: 60px;
@@ -95,14 +97,16 @@
         .archive-entry {
             max-width: 800px;
             margin: 0 auto;
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
-        /* Markdown表示用の微調整 */
+        /* 画像表示の規律 */
         .archive-entry img {
             width: 100%;
             height: auto;
             margin: 20px 0;
+            display: block;
+            border: 1px solid var(--border-color);
         }
 
         .sidebar-footer {
@@ -122,23 +126,28 @@
 
     <aside class="sidebar">
         <div class="brand-header">
-            <a href="index.html">CATANIICAL</a>
+            <a onclick="loadMD('README.md')">CATANIICAL</a>
         </div>
         
         <nav class="nav-menu">
             <div class="category-label">Platycerium</div>
             <ul class="sub-menu">
-                <li><a onclick="loadMD('platycerium/specimen-01.md')">Specimen 01</a></li>
+                <li><a onclick="loadMD('platycerium/sample.md')">SAMPLE_SPECIMEN_P01</a></li>
             </ul>
 
             <div class="category-label">Aglaonema</div>
             <ul class="sub-menu">
-                <li><a onclick="loadMD('aglaonema/made-in-heaven.md')">Made In Heaven</a></li>
+                <li><a onclick="loadMD('aglaonema/sample.md')">SAMPLE_SPECIMEN_A01</a></li>
             </ul>
 
-            <div class="category-label">Others</div>
+            <div class="category-label">Homalomena</div>
             <ul class="sub-menu">
-                <li><a onclick="loadMD('README.md')">About CATANIICAL</a></li>
+                <li><a onclick="loadMD('homalomena/sample.md')">SAMPLE_SPECIMEN_H01</a></li>
+            </ul>
+
+            <div class="category-label">System</div>
+            <ul class="sub-menu">
+                <li><a onclick="loadMD('README.md')">ABOUT ARCHIVE</a></li>
             </ul>
         </nav>
 
@@ -150,29 +159,41 @@
 
     <main class="main-content">
         <div id="content-area" class="archive-entry">
-            Loading...
+            INITIATING ARCHIVE...
         </div>
     </main>
 
     <script>
-        // Markdownファイルを読み込んで表示する関数
         async function loadMD(filePath) {
             const contentArea = document.getElementById('content-area');
             try {
-                const response = await fetch(filePath);
-                if (!response.ok) throw new Error('File not found');
+                // キャッシュ回避のためのパラメータ付与
+                const response = await fetch(filePath + '?v=' + new Date().getTime());
+                if (!response.ok) throw new Error('FILE_NOT_FOUND: ' + filePath);
                 const text = await response.text();
+                
+                // Markdownのパース
                 contentArea.innerHTML = marked.parse(text);
+                
+                // ページ上部へスクロール
+                document.querySelector('.main-content').scrollTop = 0;
+
             } catch (error) {
-                contentArea.innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
+                contentArea.innerHTML = `
+                    <div style="color:#cc0000; padding:20px; border:1px solid #cc0000;">
+                        [ERROR_LOG]<br>
+                        STATUS: FAILED_TO_LOAD<br>
+                        TARGET: ${filePath}<br>
+                        MESSAGE: ${error.message}<br><br>
+                        <small>※指定されたパスにMarkdownファイルが存在するか確認してください。</small>
+                    </div>`;
             }
         }
 
-        // 初期表示：README.md を読み込む
+        // 初回起動時
         window.onload = () => {
             loadMD('README.md');
         };
     </script>
-
 </body>
 </html>
