@@ -4,22 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cataniical</title>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Noto+Serif+JP:wght@200&display=swap" rel="stylesheet">
     <style>
-        /* * 無味無臭の静寂をデザインする
-         * 余計な装飾を排し、余白（空き）を重力に従って配置する
-         */
         body {
             margin: 0;
             padding: 0;
-            background-color: #ffffff; /* 純白 */
-            color: #1a1a1a; /* 墨色 */
-            font-family: "Times New Roman", "游明朝", "Yu Mincho", "Serif";
-            line-height: 2.0;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            font-family: 'Courier Prime', 'Noto Serif JP', serif;
+            line-height: 2.2;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
+            -webkit-font-smoothing: antialiased;
         }
 
         article {
@@ -32,16 +31,16 @@
         }
 
         h1 {
-            font-size: 1.5rem;
-            font-weight: normal;
+            font-size: 1.6rem;
+            font-weight: 400;
             margin: 0;
-            font-family: "Courier New", Courier, monospace; /* UNIX/LABO的な等幅 */
+            font-family: 'Courier Prime', monospace;
         }
 
         .definition {
-            font-size: 0.8rem;
-            color: #666;
-            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: #888;
+            margin-top: 0.8rem;
         }
 
         section {
@@ -53,35 +52,38 @@
         }
 
         .creed-title {
-            margin-bottom: 1.5rem;
-            font-weight: bold;
+            margin-bottom: 1.8rem;
+            font-weight: 400;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 4px;
         }
 
         .creed-list {
             list-style: none;
-            padding-left: 1.5rem;
-            margin-bottom: 2rem;
+            padding-left: 0.5rem;
+            margin-bottom: 2.5rem;
         }
 
         .creed-list li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
 
         ruby rt {
-            font-size: 0.6em;
-            letter-spacing: 0.1em;
+            font-size: 0.55em;
+            letter-spacing: 0.05em;
+            color: #999;
         }
 
         footer {
-            margin-top: 100px;
-            font-size: 0.9rem;
+            margin-top: 120px;
+            font-size: 0.85rem;
+            color: #444;
         }
 
-        /* * レスポンシブな余白の調整
-         */
         @media (max-width: 480px) {
             article {
-                padding: 20px;
+                padding: 30px;
             }
         }
     </style>
@@ -103,9 +105,9 @@
             <p class="creed-title">規律 / Creed</p>
             <p>三つの信条</p>
             <ul class="creed-list">
-                <li><ruby>一掃一礼<rt>いっそういちれい</rt></ruby></li>
-                <li><ruby>吾唯知足<rt>われただたるをしる</rt></ruby></li>
-                <li><ruby>綿綿密密<rt>めんめんみつみつ</rt></ruby></li>
+                <li>　<ruby>一掃一礼<rt>いっそういちれい</rt></ruby></li>
+                <li>　<ruby>吾唯知足<rt>われただたるをしる</rt></ruby></li>
+                <li>　<ruby>綿綿密密<rt>めんめんみつみつ</rt></ruby></li>
             </ul>
         </section>
     </main>
