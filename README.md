@@ -1,23 +1,14 @@
-<div style="text-align: center; padding: 60px 0 30px; background-color: #ffffff;">
-  <a href="https://cataniical.github.io/" style="text-decoration: none; display: flex !important; align-items: center; justify-content: center; gap: 20px; flex-direction: row; border: none;">
-    
-    <img src="https://raw.githubusercontent.com/cataniical/cataniical.github.io/main/assets/img/logomark_w.jpeg" 
-         alt="cataniical mark" 
-         style="width: 80px; min-width: 80px; height: auto; display: inline-block !important; margin: 0; border: none;">
-
-    <img src="https://raw.githubusercontent.com/cataniical/cataniical.github.io/main/assets/img/logo_catasumi.jpg" 
-         alt="cataniical" 
-         style="max-width: 400px; width: 100%; height: auto; display: inline-block !important; margin: 0; mix-blend-mode: multiply; filter: contrast(1.1) grayscale(1); border: none;">
-         
+<p align="center">
+  <a href="https://cataniical.github.io/">
+    <img src="https://raw.githubusercontent.com/cataniical/cataniical.github.io/main/assets/img/logomark_w.jpeg" alt="cataniical mark" width="80">
+    <img src="https://raw.githubusercontent.com/cataniical/cataniical.github.io/main/assets/img/logo_catasumi.jpg" alt="cataniical" width="400">
   </a>
-</div>
+</p>
 
-### About　カタニカル
+### About カタニカル
 **片隅にボタニカルを　その記録とともに**
 
-**ハッシュタグ（hashtag）#カタニカル, #cataniical** 
-
-日々の植物達の成長などを発信しています。
+**ハッシュタグ（hashtag）#カタニカル, #cataniical** 日々の植物達の成長などを発信しています。
 
 ### 🔗 Social Links
 お問い合わせやご連絡は、各SNSのDM（ダイレクトメッセージ）よりお願いいたします。
