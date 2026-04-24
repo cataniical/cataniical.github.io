@@ -1,9 +1,6 @@
-<p align="center">
   <a href="https://cataniical.github.io/">
-    <img src="https://raw.githubusercontent.com/cataniical/cataniical.github.io/main/assets/img/logomark_w.jpeg" alt="cataniical mark" width="80">
     <img src="https://raw.githubusercontent.com/cataniical/cataniical.github.io/main/assets/img/logo_catasumi.jpg" alt="cataniical" width="400">
   </a>
-</p>
 
 ### About カタニカル
 **片隅にボタニカルを　その記録とともに**
